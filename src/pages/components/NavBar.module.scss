@@ -1,0 +1,56 @@
+@mixin hover($color) {
+    padding: 1px;
+    max-height: 50px;
+    background-image: linear-gradient(transparent 0%,
+            transparent 95%,
+            $color 95%,
+            $color 100%);
+    background-repeat: no-repeat;
+    background-size: 0 100%;
+    background-position-x: right;
+    transition: background-size 300ms;
+
+    p {
+        color: $color;
+    }
+
+    &:hover {
+        background-size: 100% 100%;
+        background-position: left;
+    }
+}
+
+.nav {
+    justify-content: space-around;
+    height: 50px;
+    display: flex;
+    align-items: center;
+
+    button {
+        display: flex;
+        align-items: center;
+
+        p {
+            font-size: 1.5rem;
+            padding: 5px;
+        }
+
+        &:first-child {
+            @include hover(#247400)
+        }
+
+        &:nth-child(2) {
+            @include hover(#6ccdde)
+        }
+
+        &:last-child {
+            @include hover(#750000)
+        }
+
+        svg {
+            color: #0f0f0f;
+            height: 1.7rem;
+            width: 1.7rem;
+        }
+    }
+}
